@@ -63,7 +63,12 @@ list: A list of length 2 containing 2 ints that sum up to n.
 '''
 def check_goldbach(n):
     # WRITE YOUR CODE HERE
-    return primes # two prime numbers that sum up to n
+    getPrimes = prime_gen(n)
+    for i in getPrimes:
+        for j in getPrimes:
+            if i + j == n:
+                return i,j 
+    return KeyError # two prime numbers that sum up to n
 
 ### DO NOT TURN IN AN ASSIGNMENT WITH ANYTHING BELOW HERE MODIFIED ###
 if __name__ == '__main__':
