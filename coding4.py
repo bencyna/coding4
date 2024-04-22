@@ -3,7 +3,6 @@
 
 # Benjamin Cyna
 # bc3096
-
 '''
 Returns the GCD of two integers using Euclid's algorithm. Also prints out the
 intermediate steps for Euclid's Algorithm on num1 and num2.
@@ -17,9 +16,14 @@ int: GCD of num1 and num2
 '''
 def euclid(num1, num2):
     # WRITE YOUR CODE HERE
+    num1, num2 = max(num1, num2), min(num1, num2)
+    print(f"GCD({num1}, {num2}) = ", end='')
+    
     while num2 > 0:
         num1, num2 = num2, num1 % num2
+        print(f"GCD({num1}, {num2}) = ", end='')
     
+    print(num1)
     return num1 # your GCD
 
 '''
@@ -33,7 +37,20 @@ list: List of all prime numbers <= n.
 '''
 def prime_gen(n):
     # WRITE YOUR CODE HERE
-    return primes # your list of prime numbers
+    skip_vals = set()
+    ans = []
+    for num in range(2, n):
+        if num in skip_vals:
+            continue
+        
+        ans.append(num)
+        
+        for i in range(num, n):
+            if i % num == 0:
+                skip_vals.add(i)
+                
+        
+    return ans # your list of prime numbers
 
 '''
 Returns a list of two prime integers that sum up to n.
