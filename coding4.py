@@ -1,8 +1,8 @@
 # COMS3203 DISCRETE MATHEMATICS
 # CODING ASSIGNMENT 4
 
-# YOUR NAME(s):
-# YOUR UNI(s):
+# Benjamin Cyna
+# bc3096
 
 '''
 Returns the GCD of two integers using Euclid's algorithm. Also prints out the
@@ -17,7 +17,10 @@ int: GCD of num1 and num2
 '''
 def euclid(num1, num2):
     # WRITE YOUR CODE HERE
-    return gcd # your GCD
+    while num2 > 0:
+        num1, num2 = num2, num1 % num2
+    
+    return num1 # your GCD
 
 '''
 Returns a list of prime numbers up to (and including) a certain input integer, n.
